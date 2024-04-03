@@ -187,9 +187,7 @@ function Checkout() {
               </div>
               <button
                 className="w-full bg-dark-brown py-[15px] text-center text-white font-semibold text-[13px] tracking-[1px] mb-[-5px] hover:bg-[#FBAF85]"
-                onClick={() =>
-                  document.getElementById("my_modal_2").showModal()
-                }
+                onClick={() => document.getElementById("my_modal_2").showModal()}
               >
                 CONTINUE & PAY
               </button>

@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../redux/features/cartSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { decrement, increment } from "../redux/features/cartSlice";
 import {
   DB,
   DCFD,
@@ -52,15 +52,20 @@ type objElements = {
     mobile: string;
     tablet: string;
   };
-  includes: object[];
+  includes: [
+   {
+      quantity: number,
+      item: string
+    },
+  ];
   name: string;
   others: object[];
   price: number;
   slug: string;
 };
 function DetailPage({ product }: any) {
-  const { amount } = useSelector((store) => store.products);
-  const dispatch = useDispatch();
+  // const { amount } = useSelector((store) => store.products);
+  // const dispatch = useDispatch();
 
   if (!product) {
     return (
@@ -119,15 +124,15 @@ function DetailPage({ product }: any) {
             <div className="flex items-center gap-[16px]">
               <div className={DCSD}>
                 <button
-                  disabled={amount == 1 ? true : false}
-                  onClick={() => dispatch(decrement(product[0]))}
+                  // disabled={amount == 1 ? true : false}
+                  // onClick={() => dispatch(decrement(product[0]))}
                   className="cursor-pointer opacity-25 text-[15px] font-bold"
                 >
                   -
                 </button>
-                <p className="text-[15px] font-bold">{amount}</p>
+                <p className="text-[15px] font-bold">0</p>
                 <button
-                  onClick={() => dispatch(increment(product[0]))}
+                  // onClick={() => dispatch(increment(product[0]))}
                   className="opacity-25 text-[15px] font-bold"
                 >
                   +
@@ -146,7 +151,7 @@ function DetailPage({ product }: any) {
           <div className={DSCD}>
             <h1 className={DCH1}>IN THE BOX</h1>
             <div className="tablet:mt-[12px]">
-              {includes.map((el) => {
+              {includes.map((el: any) => {
                 return (
                   <div key={Math.random()} className={RD}>
                     <p className={QP}>{el.quantity}x</p>
@@ -161,7 +166,7 @@ function DetailPage({ product }: any) {
           <div>
             <img
               className="rounded-xl mb-[32px] tablet:hidden"
-              src={gallery.first.desktop}
+              src={gallery.first.destkop}
               alt=""
               width={445}
               height={280}
@@ -180,7 +185,7 @@ function DetailPage({ product }: any) {
             />
             <img
               className="rounded-xl tablet:hidden"
-              src={gallery.second.desktop}
+              src={gallery.second.destkop}
               alt=""
               width={445}
               height={280}
@@ -200,7 +205,7 @@ function DetailPage({ product }: any) {
           </div>
           <img
             className="rounded-xl 1172:hidden"
-            src={gallery.third.desktop}
+            src={gallery.third.destkop}
             alt=""
             width={635}
             height={592}

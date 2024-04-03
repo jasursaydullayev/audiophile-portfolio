@@ -23,7 +23,7 @@ function Button({
   id,
 }: BtnType) {
   return (
-    <Link onClick={window.scrollTo(0, 0)} to={`/detail/product/${id}`}>
+    <Link onClick={() => window.scrollTo(0, 0)} to={`/detail/product/${id}`}>
       <button
         className={`w-[160px] text-[13px] ${weight} tracking-[1px] text-${color} bg-${bgColor} py-[15px] ${border} ${borderColor} ${opacity} ${hoverBg}`}
       >
